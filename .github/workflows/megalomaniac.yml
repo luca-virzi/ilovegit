@@ -9,7 +9,8 @@ jobs:
     steps:
       - name: Find me
         id: find_me
-        run: grep "Luca" ../../README.md
+        run: | 
+            grep "Luca" ./README.md
       - name: Commit
         if: steps.find_me.outputs == 'true'
         run: |
