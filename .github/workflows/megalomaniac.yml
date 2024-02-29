@@ -13,13 +13,21 @@ jobs:
         id: find_me
         run: | 
             grep "Luca" ./README.md
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+              destination_branch: "main"
+              github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Change something
         run: |
             find . -type f -name "*.md" -print0 | xargs -0 sed -i "s/foo/bar/g"
       - name: Commit
         if: steps.find_me.outputs == 'true'
         run: |
-          git add *
+          git add .
           git commit -am "GH ACTION Headlines $(date)"
-          git push origin main -f
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
       
