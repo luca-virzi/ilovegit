@@ -13,6 +13,9 @@ jobs:
         id: find_me
         run: | 
             grep "Luca" ./README.md
+      - name: Change something
+        run: |
+            find . -type f -name "*.md" -print0 | xargs -0 sed -i "s/foo/bar/g"
       - name: Commit
         if: steps.find_me.outputs == 'true'
         run: |
