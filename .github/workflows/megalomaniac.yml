@@ -24,6 +24,8 @@ jobs:
       - name: Commit
         if: steps.find_me.outputs == 'true'
         run: |
+          git config --global user.email lvirzi1@campus.unimib.it
+          config --global user.name luca-virzi
           git add .
           git commit -am "GH ACTION Headlines $(date)"
       - name: Push changes
