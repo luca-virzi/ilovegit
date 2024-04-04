@@ -22,4 +22,4 @@ jobs:
        - name: Run Pytest
          run: |
              pytest -v
-             pytest --cov=app --cov-fail-under=90
+             pytest --cov=restrict_test --cov-fail-under=90
