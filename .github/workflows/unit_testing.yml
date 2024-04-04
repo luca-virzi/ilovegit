@@ -19,6 +19,6 @@ jobs:
             pip install pytest
             pyp install pytest-cov
      - name: Run Pytest
-        run: |
-            pytest -v
+       run: |
+           pytest -v
             pytest --cov=app --cov-fail-under=90
