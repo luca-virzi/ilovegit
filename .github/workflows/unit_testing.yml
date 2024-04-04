@@ -4,7 +4,7 @@ name: Unit testing
 on: [push]
 
 jobs:
-  Unit-testing:
+   Unit-testing:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
